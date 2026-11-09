@@ -39,7 +39,7 @@ Usamos la metáfora de un barco que cruza el mar de las aplicaciones. Cada secci
 - **[MIT Communication Lab: CommKit](https://mitcommlab.mit.edu):** guías y ejemplos anotados de statements.
 - **[UCSD Biological Sciences](https://biology.ucsd.edu):** guía del *Statement of Purpose* en tres secciones.
 - **[Council of Graduate Schools](https://cgsnet.org):** *A Guide to Writing the Statement of Purpose*.
-- **Fee waivers:** muchos programas los ofrecen. Pídelos a la oficina de admisiones o a través de Científico Latino.
+- **Fee waivers:** consulta las [opciones y pasos para solicitarlos](#fee-waivers-para-postulantes-internacionales) más abajo.
 - **Red REPU:** alumni de REPU que hoy están en programas de doctorado en EE.UU.
 
 ## Recursos extra
@@ -53,6 +53,22 @@ Para seguir trabajando después del taller, reunimos estas guías y herramientas
 - **[UW–Madison Writing Center: Creating a Reverse Outline](https://writing.wisc.edu/handbook/processandstructure/reverseoutlines/):** método para resumir cada párrafo de tu borrador en una oración y revisar el hilo conductor, las repeticiones y el orden de las ideas.
 - **[University of Manchester: Academic Phrasebank — Signalling Transition](https://www.phrasebank.manchester.ac.uk/signalling-transition/):** ejemplos de expresiones para conectar ideas en inglés. Puedes usarlos para revisar tus transiciones, adaptándolos a tu voz y al contexto de tu statement.
 - **[EducationUSA en la Universidad de Piura](https://www.udep.edu.pe/educationusa/):** orientación gratuita y abierta al público sobre selección de programas, requisitos de admisión y financiamiento para estudiar en EE.UU. Un recurso de asesoría en Perú para acompañar la preparación de tu aplicación.
+
+### Fee waivers para postulantes internacionales
+
+Un *application fee waiver* es una exoneración del pago por enviar tu solicitud de admisión. Estas páginas oficiales incluyen opciones para postulantes internacionales; la aprobación depende de los requisitos de cada institución y programa.
+
+- **[Yale Graduate School of Arts and Sciences](https://gsas.yale.edu/admissions/phdmasters-application-process/application-fees-fee-waivers):** acepta solicitudes de exoneración por dificultad económica documentada de postulantes internacionales a PhD y maestrías. Primero crea tu cuenta de aplicación y luego completa el formulario de *fee waiver*, que se tramita por separado.
+- **[Cornell Graduate School: costos para estudiantes internacionales](https://gradschool.cornell.edu/admissions/application-steps/pay-fees/international/):** contempla exoneraciones por dificultad económica para ciertos programas. La solicitud se hace en la página de pago, al finalizar la aplicación; revisa el [procedimiento oficial](https://gradschool.cornell.edu/admissions/application-steps/pay-fees/) antes de enviarla.
+- **[Johns Hopkins: Whiting School of Engineering](https://engineering.jhu.edu/admissions/graduate-admissions/full-time-programs/how-to-apply/general-application-requirements/):** para sus aplicaciones a doctorado, permite solicitar una exoneración por dificultad económica a postulantes internacionales. Se pide dentro de la aplicación, en *Supporting Materials → Application Fee Waiver*, adjuntando el sustento indicado. Esta política corresponde a la escuela de ingeniería.
+
+**Para buscar y solicitar otras opciones:**
+
+1. Revisa las páginas de admisiones de la *Graduate School* y del programa. Busca “application fee waiver” y comprueba que la opción incluya a estudiantes internacionales que postulan desde fuera de EE.UU.
+2. Consulta los requisitos y plazos **antes de pagar**. Sigue el formulario o procedimiento indicado y deja tiempo para que revisen tu solicitud; los pagos de estas instituciones no son reembolsables.
+3. Si la información no es clara, consulta al coordinador de admisiones del programa e indica que postulas desde Perú. Pregunta por elegibilidad, documentación y plazo para solicitar la exoneración.
+
+*Enlaces y condiciones consultados el 9 de noviembre de 2026. Revisa siempre la información del ciclo al que vas a postular.*
 
 ## Contenido del repositorio
 
