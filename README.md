@@ -42,6 +42,18 @@ Usamos la metáfora de un barco que cruza el mar de las aplicaciones. Cada secci
 - **Fee waivers:** muchos programas los ofrecen. Pídelos a la oficina de admisiones o a través de Científico Latino.
 - **Red REPU:** alumni de REPU que hoy están en programas de doctorado en EE.UU.
 
+## Recursos extra
+
+Para seguir trabajando después del taller, reunimos estas guías y herramientas que no aparecen en la presentación. Adapta sus sugerencias al *prompt* y al límite de palabras de cada programa.
+
+- **[Cornell Graduate School: Academic Statement of Purpose](https://gradschool.cornell.edu/admissions/application-steps/statements-of-purpose/):** guía para describir tu experiencia de investigación, tu aporte a cada proyecto y el *fit* con el programa y sus profesores. Incluye un checklist para revisar el borrador.
+- **[Cornell Graduate School: Personal Statement](https://gradschool.cornell.edu/admissions/application-steps/personal-statements/):** orientación para conectar tu trayectoria con la decisión de hacer un posgrado, mostrar colaboración y perseverancia, y hacer que este ensayo complemente el statement académico.
+- **[UC Berkeley: Writing Your Statements](https://grad.berkeley.edu/admissions/application-process/writing-your-statements/):** explica qué incluir en el *Statement of Purpose* y el *Personal History Statement*, y propone una estructura en cuatro partes para el primero. Útil para decidir qué experiencias desarrollar en cada ensayo.
+- **[Purdue OWL: Writing the Personal Statement](https://owl.purdue.edu/owl/job_search_writing/preparing_an_application/writing_the_personal_statement/):** preguntas de reflexión para identificar motivaciones, experiencias y habilidades antes de escribir. Un buen punto de partida si todavía no sabes por dónde empezar.
+- **[UW–Madison Writing Center: Creating a Reverse Outline](https://writing.wisc.edu/handbook/processandstructure/reverseoutlines/):** método para resumir cada párrafo de tu borrador en una oración y revisar el hilo conductor, las repeticiones y el orden de las ideas.
+- **[University of Manchester: Academic Phrasebank — Signalling Transition](https://www.phrasebank.manchester.ac.uk/signalling-transition/):** ejemplos de expresiones para conectar ideas en inglés. Puedes usarlos para revisar tus transiciones, adaptándolos a tu voz y al contexto de tu statement.
+- **[EducationUSA en la Universidad de Piura](https://www.udep.edu.pe/educationusa/):** orientación gratuita y abierta al público sobre selección de programas, requisitos de admisión y financiamiento para estudiar en EE.UU. Un recurso de asesoría en Perú para acompañar la preparación de tu aplicación.
+
 ## Contenido del repositorio
 
 | Archivo | Qué es |
