@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Votación · Taller REPU</title>
+<style>
+  :root{--navy:#0B3C5D;--teal:#0B7273;--teal-l:#CDF2F2;--coral:#B73526;--coral-l:#FFE1DC;--sand:#FFF4DC;--muted:#4A6478}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--sand);color:var(--navy);font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;display:flex;flex-direction:column}
+  header{background:var(--navy);color:#fff;padding:14px 18px;font-weight:700;font-size:17px}
+  header small{display:block;font-weight:400;opacity:.8;font-size:13px;margin-top:2px}
+  main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:22px 16px 32px;display:flex;flex-direction:column;gap:16px}
+  h1{font-size:23px;line-height:1.3;margin:4px 0 6px}
+  .phrase{background:#fff;border-radius:12px;padding:18px;font-size:20px;line-height:1.45;font-style:italic;border:2px solid rgba(11,60,93,.1)}
+  .opts{display:flex;flex-direction:column;gap:12px}
+  button.opt{display:flex;gap:14px;align-items:center;width:100%;text-align:left;font:700 19px/1.3 Arial,sans-serif;color:var(--navy);background:#fff;border:3px solid rgba(11,60,93,.15);border-radius:12px;padding:16px 18px;cursor:pointer}
+  button.opt .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
+  button.opt.sel{border-color:var(--teal);background:var(--teal-l)}
+  button.opt.sel .n{background:var(--teal)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .row2 button.opt{justify-content:center;font-size:22px;padding:22px 10px}
+  .row2 button.opt.s.sel{border-color:var(--coral);background:var(--coral-l)}
+  .msg{font-size:16px;color:var(--muted);min-height:22px}
+  .msg.ok{color:var(--teal);font-weight:700}
+  .msg.err{color:var(--coral);font-weight:700}
+  .wait{text-align:center;padding:40px 10px;color:var(--muted);font-size:19px;line-height:1.5}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--teal);margin-right:8px;animation:p 1.4s infinite}
+  @keyframes p{50%{opacity:.25}}
+</style>
+</head>
+<body>
+<header>Taller REPU · Navegando el Mar del PhD<small>Las preguntas cambian solas cuando avanza la presentación</small></header>
+<main id="app"><div class="wait"><span class="dot"></span>Conectando…</div></main>
+<script>
+(function(){
+  "use strict";
+  const TOPIC = "repu-phd-74e6c8002981d4b1";
+  const BASE = "https://ntfy.sh/" + TOPIC;
+  const POLLS = {
+    etapa: {title:"¿En qué etapa de tu statement estás hoy?", opts:["Aún no empiezo a escribir","Tengo un borrador","Tengo varias versiones","No sé la diferencia entre personal y research statement"]}
+  };
+  const QUIZ = [
+    "“Ever since I was a child, I have been fascinated by science.”",
+    "“I designed and validated a sensor that detected lead in mining-tailings water from Huaraz.”",
+    "“I want to join your prestigious university because it is one of the best in the world.”",
+    "“Dr. Danko’s work on enhancer RNA stability matches my interest in interpretable sequence models.”",
+    "“I was involved in many projects that taught me a lot.”",
+    "“I observed an enrichment of Streptomyces, which I could not yet interpret.”"
+  ];
+  QUIZ.forEach((t,i)=>{ POLLS['q'+i] = {title:`¿Esta oración flota o se hunde? (frase ${i+1} de ${QUIZ.length})`, phrase:t, opts:["Flota","Se hunde"], quiz:true}; });
+
+  let voter = null;
+  try{ voter = localStorage.getItem('repuVoter'); }catch(e){}
+  if(!voter){ voter = Math.random().toString(36).slice(2) + Date.now().toString(36); try{ localStorage.setItem('repuVoter', voter); }catch(e){} }
+  const mine = {};   // encuesta -> opción elegida en este celular
+  try{ Object.assign(mine, JSON.parse(localStorage.getItem('repuMine')||'{}')); }catch(e){}
+  let current = null, msg = '', msgCls = '';
+  const app = document.getElementById('app');
+
+  function render(){
+    const p = current && POLLS[current];
+    if(!p){ app.innerHTML = '<div class="wait"><span class="dot"></span>Espera la siguiente pregunta.<br>Esta página se actualizará sola.</div>'; return; }
+    const h1 = document.createElement('h1'); h1.textContent = p.title;
+    const frag = [h1];
+    if(p.phrase){ const d=document.createElement('div'); d.className='phrase'; d.lang='en'; d.textContent=p.phrase; frag.push(d); }
+    const box = document.createElement('div'); box.className = p.quiz ? 'row2' : 'opts';
+    p.opts.forEach((o,i)=>{
+      const b=document.createElement('button'); b.className='opt'+(p.quiz&&i===1?' s':'')+(mine[current]===i?' sel':'');
+      if(!p.quiz){ const n=document.createElement('span'); n.className='n'; n.textContent=i+1; b.appendChild(n); }
+      const s=document.createElement('span'); s.textContent=o; b.appendChild(s);
+      b.onclick=()=>vote(current,i);
+      box.appendChild(b);
+    });
+    frag.push(box);
+    const m=document.createElement('div'); m.className='msg '+msgCls; m.textContent = msg || (mine[current]!==undefined ? 'Voto registrado. Puedes cambiarlo si quieres.' : ''); if(!msg && mine[current]!==undefined) m.className='msg ok';
+    frag.push(m);
+    app.replaceChildren(...frag);
+  }
+
+  async function vote(pid, i){
+    msg='Enviando…'; msgCls=''; render();
+    try{
+      const r = await fetch(BASE, {method:'POST', body: JSON.stringify({t:'v', p:pid, o:i, id:voter})});
+      if(!r.ok) throw new Error(r.status);
+      mine[pid]=i; try{ localStorage.setItem('repuMine', JSON.stringify(mine)); }catch(e){}
+      msg=''; msgCls='';
+    }catch(e){ msg='No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.'; msgCls='err'; }
+    render();
+  }
+
+  function handle(data){
+    let m; try{ m = JSON.parse(data.message); }catch(e){ return; }
+    if(m && m.t==='state'){ const changed = m.p!==current; current = m.p; if(changed){ msg=''; } render(); }
+    if(m && m.t==='reset' && (m.p==='*' || m.p===current)){ if(m.p==='*'){ for(const k in mine) delete mine[k]; } else delete mine[m.p]; try{ localStorage.setItem('repuMine', JSON.stringify(mine)); }catch(e){} render(); }
+  }
+
+  // Estado actual (para quien entra tarde) y luego en vivo
+  fetch(BASE + '/json?poll=1&since=12h').then(r=>r.text()).then(t=>{
+    t.split('\n').filter(Boolean).forEach(l=>{ try{ const d=JSON.parse(l); if(d.event==='message') handle(d); }catch(e){} });
+    render();
+  }).catch(()=>render()).finally(()=>{
+    const es = new EventSource(BASE + '/sse');
+    es.onmessage = e=>{ try{ const d=JSON.parse(e.data); if(d.event==='message') handle(d); }catch(err){} };
+  });
+})();
+</script>
+</body>
+</html>
