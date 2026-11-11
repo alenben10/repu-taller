@@ -4,8 +4,8 @@
 
 Por **Alen Zimić Sheen** (PhD en Computational Biology, Cornell, Danko Lab) y **María Belén Balta** (PhD en Genetics, Genomics & Development, Cornell, Kimura Lab; alumni REPU 2024).
 
-👉 **Presentación:** https://alenzimic.github.io/repu-taller/
-👉 **Votación en vivo:** https://alenzimic.github.io/repu-taller/encuesta/
+👉 **Presentación:** https://alenben10.github.io/repu-taller/
+👉 **Votación en vivo:** https://alenben10.github.io/repu-taller/encuesta/
 
 ---
 
